@@ -7,7 +7,7 @@ This repository contains the dataset-quality evaluation code used for rail-surfa
 - **Style consistency** (`style.py`)
 - **Annotation consistency** (`annotations.py`)
 
-The four component scores are aggregated with a geometric mean in `main.py`.
+The four component scores are aggregated with a geometric mean in `code/main.py`.
 
 ## Installation
 
@@ -42,13 +42,13 @@ Coordinates are normalized to `[0, 1]`.
 ## Usage
 
 ```bash
-python main.py --images /path/to/images --labels /path/to/labels
+python code/main.py --images /path/to/images --labels /path/to/labels
 ```
 
 On Windows:
 
 ```powershell
-python main.py --images "D:\dataset\train\images" --labels "D:\dataset\train\labels"
+python code/main.py --images "D:\dataset\train\images" --labels "D:\dataset\train\labels"
 ```
 
 The annotation metrics use a pretrained ResNet feature extractor. The first run may download the official torchvision weights if they are not already cached.
@@ -57,16 +57,18 @@ The annotation metrics use a pretrained ResNet feature extractor. The first run 
 
 | File | Purpose |
 |---|---|
-| `main.py` | Command-line entry point and score aggregation |
-| `spatial.py` | Spatial structure and information metrics |
-| `light.py` | Exposure, illumination, blur, and high-frequency metrics |
-| `style.py` | Color, tone, texture, and noise/compression consistency metrics |
-| `annotations.py` | Annotation consistency metrics |
-| `utils.py` | Shared image and label utilities |
+| `code/main.py` | Command-line entry point and score aggregation |
+| `code/spatial.py` | Spatial structure and information metrics |
+| `code/light.py` | Exposure, illumination, blur, and high-frequency metrics |
+| `code/style.py` | Color, tone, texture, and noise/compression consistency metrics |
+| `code/annotations.py` | Annotation consistency metrics |
+| `code/utils.py` | Shared image and label utilities |
+| `DATASETS.md` | Source links and redistribution notes for the ten datasets |
 
 ## Notes
 
-- Model checkpoints, training runs, caches, and datasets are intentionally excluded from this initial code release.
+- Model checkpoints, training runs, and caches are intentionally excluded.
+- The ten datasets are not mirrored in this repository. See [`DATASETS.md`](DATASETS.md) for their original source pages and licenses.
 - Metric definitions and parameter settings should be cited and reported consistently with the accompanying paper.
 
 ## Citation
